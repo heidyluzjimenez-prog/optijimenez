@@ -1,0 +1,122 @@
+/* COLORES DE MARCA */
+:root {
+  --color-negro: #000000;
+  --color-blanco: #ffffff;
+  --color-acento: #e51c71;
+  --color-secundario: #8bcdaf;
+}
+
+.btn-primary {
+  background-color: var(--color-acento);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #c2185b;
+}
+
+/* Navbar (cuando hace scroll) */
+.navbar-custom.scrolled {
+  background-color: var(--color-negro);
+}
+
+/* Links */
+a {
+  color: var(--color-acento);
+}
+
+a:hover {
+  color: var(--color-secundario);
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-negro);
+}
+
+/* Sección alternativa (para variar diseño) */
+.bg-soft {
+  background-color: var(--color-secundario);
+}
+
+
+
+
+/* TIPOGRAFÍA */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 700;
+}
+
+/* NAVAR */
+
+.navbar-custom {
+  background: transparent;
+  transition: 0.3s;
+}
+
+.navbar-custom.scrolled {
+  background: #000;
+}
+
+/* logo */
+.logo-navbar {
+  height: 55px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .logo-navbar {
+    height: 35px;
+  }
+}
+
+/* hero */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  background-image: 
+    linear-gradient(rgba(229, 28, 113, 0.25), rgba(0, 0, 0, 0.7)),
+    url("../img/Futura.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contenido-hero {
+  transform: translateY(80px);
+}
+
+/* Icono */
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Hover */
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* MÓVIL (MUY IMPORTANTE) */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 80px; /* 👈 sube el botón (clave) */
+    right: 15px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-float svg {
+    width: 24px;
+    height: 24px;
+  }
+}
