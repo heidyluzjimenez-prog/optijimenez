@@ -49,7 +49,26 @@ body {
 
 h1, h2, h3, h4, .navbar-brand {
   font-family: 'Comfortaa', sans-serif;
+  font-weight: 800;
+}
+
+/* TÍTULOS DE SECCIONES */
+.section-title {
+  font-size: 2.3rem;
+
   font-weight: 700;
+
+  margin-bottom: 60px;
+
+  color: #111;
+}
+
+.contacto-title {
+  font-size: 2.3rem;
+
+  font-weight: 700;
+
+  color: #ffffff;
 }
 
 /* NAVAR */
@@ -78,7 +97,7 @@ h1, h2, h3, h4, .navbar-brand {
 /* hero */
 
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
 
@@ -95,6 +114,33 @@ h1, h2, h3, h4, .navbar-brand {
   transform: translateY(80px);
 }
 
+
+
+/* BOTÓN WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+
+  bottom: 20px;
+  right: 20px;
+
+  width: 60px;
+  height: 60px;
+
+  background-color: #25d366;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+  z-index: 9999;
+}
+
 /* Icono */
 .whatsapp-float svg {
   width: 28px;
@@ -109,8 +155,9 @@ h1, h2, h3, h4, .navbar-brand {
 /* MÓVIL (MUY IMPORTANTE) */
 @media (max-width: 768px) {
   .whatsapp-float {
-    bottom: 80px; /* 👈 sube el botón (clave) */
+    bottom: 395px;
     right: 15px;
+
     width: 50px;
     height: 50px;
   }
@@ -119,4 +166,143 @@ h1, h2, h3, h4, .navbar-brand {
     width: 24px;
     height: 24px;
   }
+}
+
+/* LINKS DEL NAVBAR */
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff;
+}
+
+/* Hover */
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #8bcdaf;
+}
+
+/* ICONO HAMBURGUESA */
+.navbar-toggler {
+  padding: 4px 8px;
+
+  border: 1px solid #ffffff;
+
+  border-radius: 8px;
+
+  box-shadow: none;
+
+  background-color: rgba(0,0,0,0.1);
+}
+
+/* Hace el icono completamente blanco */
+/* ICONO HAMBURGUESA */
+.navbar-toggler-icon {
+  width: 24px;
+  height: 24px;
+
+  background-size: 24px;
+
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* SERVICIOS */
+.servicio-card {
+  background-color: transparent;
+
+  border: 1px solid rgba(255,255,255,0.6);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  transition: 0.3s;
+}
+
+.servicio-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.servicio-card img {
+  height: 240px;
+
+  object-fit: cover;
+}
+
+.servicio-card .card-body {
+  padding: 25px;
+}
+
+.servicio-card h4 {
+  color: #111;
+
+  margin-bottom: 15px;
+}
+
+.servicio-card p {
+  color: #222;
+}
+
+/* TESTIMONIOS */
+.testimonial-card {
+  background-color: #ffffff;
+
+  padding: 35px 25px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.testimonial-card img {
+  object-fit: cover;
+
+  border: 4px solid #8bcdaf;
+}
+
+.testimonial-card p {
+  color: #333;
+
+  font-style: italic;
+
+  line-height: 1.6;
+}
+
+.testimonial-card h6 {
+  color: #111;
+
+  font-weight: 700;
+}
+
+/* FOOTER */
+.footer-text {
+  color: #ffffff;
+}
+
+.footer-link {
+  color: #e51c71;
+
+  transition: 0.3s;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+section {
+  padding-top: 90px !important;
+
+  padding-bottom: 90px !important;
+}
+
+.hero {
+  padding-top: 0 !important;
+
+  padding-bottom: 0 !important;
 }
