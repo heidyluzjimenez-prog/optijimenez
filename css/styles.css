@@ -4,6 +4,8 @@
   --color-blanco: #ffffff;
   --color-acento: #e51c71;
   --color-secundario: #8bcdaf;
+  --color-texto: #111111;
+  --color-texto-secundario: #333333;
 }
 
 .btn-primary {
@@ -14,33 +16,6 @@
 .btn-primary:hover {
   background-color: #c2185b;
 }
-
-/* Navbar (cuando hace scroll) */
-.navbar-custom.scrolled {
-  background-color: var(--color-negro);
-}
-
-/* Links */
-a {
-  color: var(--color-acento);
-}
-
-a:hover {
-  color: var(--color-secundario);
-}
-
-/* Footer */
-footer {
-  background-color: var(--color-negro);
-}
-
-/* Sección alternativa (para variar diseño) */
-.bg-soft {
-  background-color: var(--color-secundario);
-}
-
-
-
 
 /* TIPOGRAFÍA */
 body {
@@ -55,34 +30,19 @@ h1, h2, h3, h4, .navbar-brand {
 /* TÍTULOS DE SECCIONES */
 .section-title {
   font-size: 2.3rem;
-
   font-weight: 700;
-
   margin-bottom: 60px;
 
-  color: #111;
+  color: var(--color-texto);
 }
 
 .contacto-title {
   font-size: 2.3rem;
-
   font-weight: 700;
-
-  color: #ffffff;
+  color: var(--color-blanco);
 }
 
-/* NAVAR */
-
-.navbar-custom {
-  background: transparent;
-  transition: 0.3s;
-}
-
-.navbar-custom.scrolled {
-  background: #000;
-}
-
-/* logo */
+/* LOGO */
 .logo-navbar {
   height: 55px;
   width: auto;
@@ -94,8 +54,55 @@ h1, h2, h3, h4, .navbar-brand {
   }
 }
 
-/* hero */
+/* NAVBAR */ 
+.navbar-custom {
+  background: transparent;
+  transition: 0.3s;
+}
 
+/* NAVBAR (CUANDO HACE SCROLL)*/ 
+.navbar-custom.scrolled {
+  background-color: var(--color-negro);
+}
+
+/* LINKS DEL SITIO */
+a {
+  color: var(--color-acento);
+}
+
+a:hover {
+  color: var(--color-secundario);
+}
+
+/* LINKS DEL NAVBAR */
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--color-blanco);
+}
+
+/* HOVER NAVBAR */
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: var(--color-secundario);
+}
+
+/* ICONO HAMBURGUESA */
+.navbar-toggler {
+  padding: 4px 8px;
+  border: 1px solid var(--color-blanco);
+  border-radius: 8px;
+  box-shadow: none;
+  background-color: rgba(0,0,0,0.1);
+}
+
+/* HACE EL ICONO HAMBURGUÉS COMPLETAMENTE BLANCO */
+.navbar-toggler-icon {
+  width: 24px;
+  height: 24px;
+
+  background-size: 24px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* HERO */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -114,50 +121,40 @@ h1, h2, h3, h4, .navbar-brand {
   transform: translateY(80px);
 }
 
-
-
 /* BOTÓN WHATSAPP */
 .whatsapp-float {
   position: fixed;
-
   bottom: 20px;
   right: 20px;
-
   width: 60px;
   height: 60px;
 
   background-color: #25d366;
-
   border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-decoration: none;
-
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-
   z-index: 9999;
 }
 
-/* Icono */
+/* Icono WHATSAPP */
 .whatsapp-float svg {
   width: 28px;
   height: 28px;
 }
 
-/* Hover */
+/* HOVER WHATSAPP */
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
 
-/* MÓVIL (MUY IMPORTANTE) */
+/* WHATSAPP MÓVIL (MUY IMPORTANTE) */
 @media (max-width: 768px) {
   .whatsapp-float {
     bottom: 395px;
     right: 15px;
-
     width: 50px;
     height: 50px;
   }
@@ -168,141 +165,137 @@ h1, h2, h3, h4, .navbar-brand {
   }
 }
 
-/* LINKS DEL NAVBAR */
-.navbar-dark .navbar-nav .nav-link {
-  color: #ffffff;
-}
-
-/* Hover */
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #8bcdaf;
-}
-
-/* ICONO HAMBURGUESA */
-.navbar-toggler {
-  padding: 4px 8px;
-
-  border: 1px solid #ffffff;
-
-  border-radius: 8px;
-
-  box-shadow: none;
-
-  background-color: rgba(0,0,0,0.1);
-}
-
-/* Hace el icono completamente blanco */
-/* ICONO HAMBURGUESA */
-.navbar-toggler-icon {
-  width: 24px;
-  height: 24px;
-
-  background-size: 24px;
-
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-/* SERVICIOS */
+/* TARJETAS SERVICIOS */
 .servicio-card {
-  background-color: transparent;
-
-  border: 1px solid rgba(255,255,255,0.6);
-
-  border-radius: 18px;
-
+  background-color: var(--color-blanco);
+  border: 4px solid rgba(255,255,255,0.9);
+  border-radius: 22px;
   overflow: hidden;
-
-  transition: 0.3s;
+  transition: 0.35s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
+/* HOVER TARJETAS */
 .servicio-card:hover {
-  transform: translateY(-6px);
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
 }
 
+/* IMAGEN TARJETAS */
 .servicio-card img {
   height: 240px;
-
+  width: 100%;
   object-fit: cover;
+  border-bottom: 4px solid var(--color-blanco);
 }
 
+/* CÍRCULO ICONO SERVICIOS */
+.service-circle {
+  width: 70px;
+  height: 70px;
+  background-color: var(--color-blanco);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -35px auto 15px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+/* ICONO */
+.service-circle i {
+  font-size: 2.5rem;
+  color: var(--color-secundario);
+}
+
+/* ICONO MONTURAS */
+.icon-glasses {
+  font-size: 2.2rem;
+  transform: scaleX(1.2);
+  font-weight: 300;
+}
+
+/* CONTENIDO TARJETAS */
 .servicio-card .card-body {
-  padding: 25px;
+  background-color: var(--color-blanco);
+  padding: 30px 25px;
 }
 
+/* TÍTULOS TARJETAS */
 .servicio-card h4 {
-  color: #111;
-
-  margin-bottom: 15px;
+  color: var(--color-texto);
+  margin-bottom: 16px;
+  font-weight: 700;
 }
 
+/* TEXTO TARJETAS */
 .servicio-card p {
-  color: #222;
+  color: var(--color-texto-secundario);
+  line-height: 1.7;
 }
 
 /* TESTIMONIOS */
 .testimonial-card {
-  background-color: #ffffff;
-
+  background-color: var(--color-blanco);
   padding: 35px 25px;
-
   border-radius: 20px;
-
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-
   transition: 0.3s;
 }
 
 .testimonial-card:hover {
   transform: translateY(-6px);
-
   box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
 .testimonial-card img {
   object-fit: cover;
-
-  border: 4px solid #8bcdaf;
+  border: 4px solid var(--color-secundario);
 }
 
 .testimonial-card p {
-  color: #333;
-
+  color: var(--color-texto-secundario);
   font-style: italic;
-
   line-height: 1.6;
 }
 
 .testimonial-card h6 {
-  color: #111;
-
+  color: var(--color-texto);
   font-weight: 700;
 }
 
-/* FOOTER */
+/* ESTRUCTURA y FONDO DEL FOOTER */
+footer {
+  background-color: var(--color-negro);
+}
+
+/* Sección alternativa (para variar diseño) */
+.bg-soft {
+  background-color: var(--color-secundario);
+}
+
+/* CONTENIDO, TEXTOS Y LINKS DEL FOOTER */
 .footer-text {
-  color: #ffffff;
+  color: var(--color-blanco);
 }
 
 .footer-link {
-  color: #e51c71;
-
+  color: var(--color-acento);
   transition: 0.3s;
 }
 
 .footer-link:hover {
-  color: #ffffff;
+  color: var(--color-blanco);
 }
 
 section {
   padding-top: 90px !important;
-
   padding-bottom: 90px !important;
 }
 
 .hero {
   padding-top: 0 !important;
-
   padding-bottom: 0 !important;
 }
