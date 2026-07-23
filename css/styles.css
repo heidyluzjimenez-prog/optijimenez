@@ -139,7 +139,7 @@ a:hover {
   z-index: 9999;
 }
 
-/* Icono WHATSAPP */
+/* ICONO WHATSAPP */
 .whatsapp-float svg {
   width: 28px;
   height: 28px;
@@ -204,20 +204,28 @@ a:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.12);
 }
 
-/* ICONO */
+/* ICONOS DE SERVICIOS */
 .service-circle i {
   font-size: 2.5rem;
   color: var(--color-secundario);
 }
 
-/* ICONO MONTURAS */
-.icon-glasses {
-  font-size: 2.2rem;
-  transform: scaleX(1.2);
-  font-weight: 300;
+/* AJUSTE ICONO FABRICACIÓN */
+.icon-gear {
+  font-size: 2.6rem;
 }
 
-/* CONTENIDO TARJETAS */
+/* AJUSTE ICONO MONTAJE */
+.icon-wrench {
+  font-size: 2.3rem;
+}
+
+/* AJUSTE ICONO REPARACIÓN */
+.icon-tools {
+  font-size: 2.2rem;
+}
+
+/* CONTENIDO TARJETAS DE SERVICIO*/
 .servicio-card .card-body {
   background-color: var(--color-blanco);
   padding: 30px 25px;
@@ -234,6 +242,33 @@ a:hover {
 .servicio-card p {
   color: var(--color-texto-secundario);
   line-height: 1.7;
+}
+
+/* ¿POR QUÉ ELEGIRNOS? */
+
+.why-icon {
+    font-size: 4rem;
+    color: var(--color-acento);
+    margin-bottom: 25px;
+}
+
+.why-icon + h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--color-texto);
+}
+
+.patch-check-icon {
+    font-size: 3.7rem;
+}
+
+.why-icon + h4 + p {
+    color: var(--color-texto-secundario);
+    line-height: 1.7;
+}
+
+.chat-heart-icon{
+    font-size:3.6rem;
 }
 
 /* TESTIMONIOS */

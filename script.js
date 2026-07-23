@@ -1,4 +1,4 @@
 window.addEventListener("scroll", function() {
-  let navbar = document.querySelector(".navbar");
+  const navbar = document.querySelector(".navbar-custom");
   navbar.classList.toggle("scrolled", window.scrollY > 50);
 });
