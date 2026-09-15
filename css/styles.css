@@ -528,6 +528,302 @@ section {
   background-repeat: no-repeat;
 }
 
+/* PÁGINA COTIZAR */
+/* FONDO DE LA SECCIÓN */
+.cotizar-section {
+    background-color: var(--color-secundario-soft);
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+#form-cotizacion {
+    scroll-margin-top: 100px;
+}
+
+/* TARJETA PRINCIPAL */
+.cotizar-card {
+    background-color: var(--color-blanco);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ICONO PRINCIPAL */
+.cotizar-icon {
+    font-size: 5rem;
+    color: var(--color-acento);
+    margin-bottom: 15px;
+    transform: scale(1.6);
+}
+
+/* TÍTULOS DE LAS SECCIONES DEL FORMULARIO */
+.cotizar-section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-negro);
+    margin-bottom: 8px;
+}
+
+/* TEXTO DESCRIPTIVO */
+.cotizar-section-text {
+    color: var(--color-texto-secundario);
+    margin-bottom: 25px;
+}
+
+/* CADA BLOQUE DEL FORMULARIO */
+.cotizar-form-section {
+    margin-top: 35px;
+}
+
+/* GRUPOS DE OPCIONES */
+.cotizar-option-group {
+    margin-top: 25px;
+}
+
+/* SUBTÍTULOS */
+.cotizar-form-subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-negro);
+    margin-bottom: 15px;
+}
+
+/* CAMPOS DEL FORMULARIO */
+.cotizar-card .form-label {
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 8px;
+}
+
+.cotizar-card .form-control {
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+}
+
+.cotizar-card .form-control:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 0.2rem rgba(139, 205, 175, 0.25);
+}
+
+/* FOTO DE LA FÓRMULA */
+.cotizar-formula-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: var(--color-secundario-soft);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.cotizar-formula-icon {
+    color: var(--color-acento);
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.cotizar-formula-info p {
+    margin: 0;
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* CAMPO PARA ADJUNTAR LA FÓRMULA */
+.cotizar-card input[type="file"] {
+    cursor: pointer;
+    background-color: var(--color-blanco);
+}
+
+.cotizar-card input[type="file"]:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 0.2rem rgba(139, 205, 175, 0.25);
+}
+
+/* BOTÓN SECUNDARIO PARA ADJUNTAR FOTO */
+.cotizar-file-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: var(--color-blanco);
+    color: var(--color-acento);
+    border: 2px solid var(--color-acento);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.cotizar-file-btn:hover {
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+}
+
+/* OCULTAMOS EL SELECTOR DE ARCHIVO ORIGINAL */
+#foto-formula {
+    display: none;
+}
+
+/* NOMBRE DE LA FOTO SELECCIONADA */
+.cotizar-file-name {
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* OPCIONES DE TIPO DE LENTE */
+.cotizar-lens-options .form-check {
+    margin: 0;
+}
+
+.cotizar-lens-options .form-check-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 55px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    color: var(--color-texto);
+    font-weight: 600;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* OCULTAMOS VISUALMENTE EL RADIO ORIGINAL */
+.cotizar-lens-options .form-check-input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Hover */
+.cotizar-lens-options .form-check-label:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+}
+
+/* OPCIÓN SELECCIONADA */
+.cotizar-lens-options .form-check-input:checked + .form-check-label {
+    background-color: var(--color-acento);
+    border-color: var(--color-acento);
+    color: var(--color-blanco);
+}
+
+/* OPCIONES DE MATERIAL DEL LENTE */
+.cotizar-material-options .form-check {
+    margin: 0;
+}
+
+.cotizar-material-options .form-check-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 55px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    color: var(--color-texto);
+    font-weight: 600;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cotizar-material-options .form-check-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.cotizar-material-options .form-check-label:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+}
+
+.cotizar-material-options .form-check-input:checked + .form-check-label {
+    background-color: var(--color-acento);
+    border-color: var(--color-acento);
+    color: var(--color-blanco);
+}
+
+/* OPCIONES DE FILTROS Y TRATAMIENTOS */
+.cotizar-filter-options .form-check {
+    margin: 0;
+}
+
+.cotizar-filter-options .form-check-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 55px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    color: var(--color-texto);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cotizar-filter-options .form-check-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.cotizar-filter-options .form-check-label:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+}
+
+.cotizar-filter-options .form-check-input:checked + .form-check-label {
+    background-color: var(--color-acento);
+    border-color: var(--color-acento);
+    color: var(--color-blanco);
+}
+
+/* OPCIONES DE MONTURA */
+.cotizar-montura-options .form-check {
+    margin: 0;
+}
+
+.cotizar-montura-options .form-check-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 55px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    color: var(--color-texto);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cotizar-montura-options .form-check-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.cotizar-montura-options .form-check-label:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+}
+
+.cotizar-montura-options .form-check-input:checked + .form-check-label {
+    background-color: var(--color-acento);
+    border-color: var(--color-acento);
+    color: var(--color-blanco);
+}
+
 /* SECCIÓN CONSULTA */
 .consulta-section {
   background-color: var(--color-secundario-soft);
