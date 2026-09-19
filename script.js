@@ -199,3 +199,178 @@ ${mensaje}
     });
 
 }
+
+/* COTIZAR - REGLAS DE LOS FILTROS */
+
+const filtros = document.querySelectorAll('input[name="filtros"]');
+
+filtros.forEach(function(filtro) {
+
+    filtro.addEventListener("change", function() {
+
+        const fotocromatico = document.querySelector(
+            'input[name="filtros"][value="Fotocromático"]'
+        );
+
+        const transition = document.querySelector(
+            'input[name="filtros"][value="Transition"]'
+        );
+
+        const polarizado = document.querySelector(
+            'input[name="filtros"][value="Polarizado"]'
+        );
+
+        const terapeuticos = document.querySelector(
+            'input[name="filtros"][value="Filtros Terapéuticos Médicos"]'
+        );
+
+        const solares = document.querySelector(
+            'input[name="filtros"][value="Filtros Solares de Color"]'
+        );
+
+        /* Fotocromático y Transition no pueden combinarse */
+
+        if (fotocromatico.checked) {
+            transition.checked = false;
+        }
+
+        if (transition.checked) {
+            fotocromatico.checked = false;
+        }
+
+
+        /* Filtros exclusivos */
+
+        if (polarizado.checked) {
+
+            filtros.forEach(function(otroFiltro) {
+
+                if (otroFiltro !== polarizado) {
+                    otroFiltro.checked = false;
+                }
+
+            });
+
+        }
+
+        if (terapeuticos.checked) {
+
+            filtros.forEach(function(otroFiltro) {
+
+                if (otroFiltro !== terapeuticos) {
+                    otroFiltro.checked = false;
+                }
+
+            });
+
+        }
+
+        if (solares.checked) {
+
+            filtros.forEach(function(otroFiltro) {
+
+                if (otroFiltro !== solares) {
+                    otroFiltro.checked = false;
+                }
+
+            });
+
+        }
+
+    });
+
+});
+
+/* COTIZAR - REGLAS DE LAS MONTURAS */
+
+const monturas = document.querySelectorAll('input[name="tipo_montura"]');
+
+monturas.forEach(function(montura) {
+
+    montura.addEventListener("change", function() {
+
+        // Al seleccionar una montura,
+        // se desmarcan automáticamente las demás.
+
+        monturas.forEach(function(otraMontura) {
+
+            if (otraMontura !== montura) {
+                otraMontura.checked = false;
+            }
+
+        });
+
+    });
+
+});
+
+/* Preparar el formulario para WhatsApp */
+
+const formularioCotizacion = document.querySelector("#form-cotizacion");
+
+if (formularioCotizacion) {
+
+    formularioCotizacion.addEventListener("submit", function(evento) {
+
+        evento.preventDefault();
+
+        // Datos del cliente
+        const nombre = document.querySelector("#nombre").value;
+        const whatsapp = document.querySelector("#whatsapp").value;
+
+        // Tipo de lente
+        const tipoLente = document.querySelector(
+            'input[name="tipo_lente"]:checked'
+        );
+
+        // Material
+        const materialLente = document.querySelector(
+            'input[name="material_lente"]:checked'
+        );
+
+        // Filtros
+        const filtrosSeleccionados = document.querySelectorAll(
+            'input[name="filtros"]:checked'
+        );
+
+        // Montura
+        const tipoMontura = document.querySelector(
+            'input[name="tipo_montura"]:checked'
+        );
+
+        // Crear lista de filtros
+        let filtros = [];
+
+        filtrosSeleccionados.forEach(function(filtro) {
+            filtros.push(filtro.value);
+        });
+
+        // Crear mensaje
+        const mensajeWhatsApp = `
+Hola, quiero solicitar una cotización de lentes.
+
+*Datos del cliente*
+Nombre: ${nombre}
+WhatsApp: ${whatsapp}
+
+*Características de los lentes*
+Tipo de lente: ${tipoLente ? tipoLente.value : "No seleccionado"}
+Material: ${materialLente ? materialLente.value : "No seleccionado"}
+Filtros y tratamientos: ${filtros.length > 0 ? filtros.join(", ") : "Ninguno"}
+Montura: ${tipoMontura ? tipoMontura.value : "No seleccionado"}
+
+Por favor, envía(adjunta) en este chat la foto de tu fórmula para completar la solicitud de cotización.
+        `;
+
+        const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
+
+        const numeroWhatsApp = "573182627710";
+
+        const enlaceWhatsApp =
+            `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+
+        window.open(enlaceWhatsApp, "_blank");
+
+    });
+
+}

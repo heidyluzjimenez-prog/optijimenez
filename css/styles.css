@@ -607,73 +607,6 @@ section {
     box-shadow: 0 0 0 0.2rem rgba(139, 205, 175, 0.25);
 }
 
-/* FOTO DE LA FÓRMULA */
-.cotizar-formula-info {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    background-color: var(--color-secundario-soft);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 25px;
-}
-
-.cotizar-formula-icon {
-    color: var(--color-acento);
-    font-size: 1.4rem;
-    flex-shrink: 0;
-}
-
-.cotizar-formula-info p {
-    margin: 0;
-    color: var(--color-texto-secundario);
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* CAMPO PARA ADJUNTAR LA FÓRMULA */
-.cotizar-card input[type="file"] {
-    cursor: pointer;
-    background-color: var(--color-blanco);
-}
-
-.cotizar-card input[type="file"]:focus {
-    border-color: var(--color-secundario);
-    box-shadow: 0 0 0 0.2rem rgba(139, 205, 175, 0.25);
-}
-
-/* BOTÓN SECUNDARIO PARA ADJUNTAR FOTO */
-.cotizar-file-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background-color: var(--color-blanco);
-    color: var(--color-acento);
-    border: 2px solid var(--color-acento);
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s ease;
-    margin-bottom: 10px;
-}
-
-.cotizar-file-btn:hover {
-    background-color: var(--color-acento);
-    color: var(--color-blanco);
-}
-
-/* OCULTAMOS EL SELECTOR DE ARCHIVO ORIGINAL */
-#foto-formula {
-    display: none;
-}
-
-/* NOMBRE DE LA FOTO SELECCIONADA */
-.cotizar-file-name {
-    color: var(--color-texto-secundario);
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
 
 /* OPCIONES DE TIPO DE LENTE */
 .cotizar-lens-options .form-check {
@@ -787,6 +720,37 @@ section {
     color: var(--color-blanco);
 }
 
+.cotizar-filter-info {
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.cotizar-filter-info i {
+    color: var(--color-secundario);
+    margin-right: 6px;
+}
+
+/* SEPARACIÓN DE GRUPOS DE FILTROS */
+
+.cotizar-filter-options .cotizar-filter-group-title {
+    flex-basis: 100%;
+    width: 100%;
+}
+
+.cotizar-filter-options .cotizar-filter-group-text {
+    flex-basis: 100%;
+    width: 100%;
+}
+
+/* TÍTULOS DE LOS GRUPOS DE FILTROS */
+
+.cotizar-filter-group-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
 /* OPCIONES DE MONTURA */
 .cotizar-montura-options .form-check {
     margin: 0;
@@ -823,6 +787,7 @@ section {
     border-color: var(--color-acento);
     color: var(--color-blanco);
 }
+
 
 /* SECCIÓN CONSULTA */
 .consulta-section {
