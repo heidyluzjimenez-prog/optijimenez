@@ -230,14 +230,13 @@ filtros.forEach(function(filtro) {
 
         /* Fotocromático y Transition no pueden combinarse */
 
-        if (fotocromatico.checked) {
+        if (filtro.value === "Fotocromático" && filtro.checked) {
             transition.checked = false;
         }
 
-        if (transition.checked) {
+        if (filtro.value === "Transition" && filtro.checked) {
             fotocromatico.checked = false;
         }
-
 
         /* Filtros exclusivos */
 
@@ -304,7 +303,7 @@ monturas.forEach(function(montura) {
 
 });
 
-/* Preparar el formulario para WhatsApp */
+/* PREPARAR EL FORMULARIO PARA WHATSAPP */
 
 const formularioCotizacion = document.querySelector("#form-cotizacion");
 
@@ -314,38 +313,38 @@ if (formularioCotizacion) {
 
         evento.preventDefault();
 
-        // Datos del cliente
+        // DATOS DEL CLIENTE
         const nombre = document.querySelector("#nombre").value;
         const whatsapp = document.querySelector("#whatsapp").value;
 
-        // Tipo de lente
+        // TIPO DE LENTE
         const tipoLente = document.querySelector(
             'input[name="tipo_lente"]:checked'
         );
 
-        // Material
+        // MATERIAL
         const materialLente = document.querySelector(
             'input[name="material_lente"]:checked'
         );
 
-        // Filtros
+        // FILTROS
         const filtrosSeleccionados = document.querySelectorAll(
             'input[name="filtros"]:checked'
         );
 
-        // Montura
+        //  MONTURA
         const tipoMontura = document.querySelector(
             'input[name="tipo_montura"]:checked'
         );
 
-        // Crear lista de filtros
+        // CREAR LISTA DE FILTROS
         let filtros = [];
 
         filtrosSeleccionados.forEach(function(filtro) {
             filtros.push(filtro.value);
         });
 
-        // Crear mensaje
+        // CREAR MENSAJE
         const mensajeWhatsApp = `
 Hola, quiero solicitar una cotización de lentes.
 
@@ -359,7 +358,7 @@ Material: ${materialLente ? materialLente.value : "No seleccionado"}
 Filtros y tratamientos: ${filtros.length > 0 ? filtros.join(", ") : "Ninguno"}
 Montura: ${tipoMontura ? tipoMontura.value : "No seleccionado"}
 
-Por favor, envía(adjunta) en este chat la foto de tu fórmula para completar la solicitud de cotización.
+Por favor, envía(adjunta) en este chat la foto(formato JPG, JPEG o PNG) de tu fórmula para completar la solicitud de cotización.
         `;
 
         const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
