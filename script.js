@@ -5,6 +5,15 @@ window.addEventListener("scroll", function() {
 });
 
 
+/* CARGAR MENU */
+fetch("menu.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("menu-container").innerHTML = data;
+  });
+
+
+
 /*ANIMACION*/
 const elementosFade = document.querySelectorAll(".fade-in");
 
