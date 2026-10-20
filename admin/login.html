@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acceso administrativo | Opti-Jiménez</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Estilos propios del panel -->
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+
+    <main class="login-card">
+
+        <img
+            src="../img/logo.png"
+            alt="Logotipo de Opti-Jiménez"
+            class="logo-admin"
+        >
+
+        <p class="descripcion">
+            Panel administrativo
+        </p>
+
+        <form id="form-login">
+
+            <div class="mb-3">
+                <label for="usuario" class="form-label">
+                    Usuario
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="usuario"
+                    name="usuario"
+                    autocomplete="username"
+                    required
+                >
+            </div>
+
+            <div class="mb-4">
+                <label for="contrasena" class="form-label">
+                    Contraseña
+                </label>
+
+                <input
+                    type="password"
+                    class="form-control"
+                    id="contrasena"
+                    name="contrasena"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-login">
+                Iniciar sesión
+            </button>
+
+        </form>
+
+        <div
+            id="mensaje-login"
+            class="mt-3"
+            role="status"
+            aria-live="polite"
+        ></div>
+
+    </main>
+
+</body>
+
+</html>

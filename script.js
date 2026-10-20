@@ -31,134 +31,148 @@ elementosFade.forEach(function(elemento) {
   observador.observe(elemento);
 });
 
-/*PEDIDOS*/
-const pedidos = {
-    "OP-00125": {
-        cliente: "María G.",
-        estado: "En fabricación",
-        fecha: "25 de agosto de 2026",
-        tipo: "Lentes formulados"
-    },
 
-    "OP-00126": {
-        cliente: "Carlos R.",
-        estado: "Listo para entregar",
-        fecha: "22 de agosto de 2026",
-        tipo: "Lentes antirreflejo"
-    },
-
-    "OP-00127": {
-        cliente: "Laura M.",
-        estado: "Entregado",
-        fecha: "20 de agosto de 2026",
-        tipo: "Lentes formulados"
-    }
-};
-
-/*CONSULTA*/
+/* CONSULTA DE PEDIDOS */
 const formularioConsulta = document.querySelector("#form-consulta");
 
 if (formularioConsulta) {
 
-formularioConsulta.addEventListener("submit", function(evento) {
+    formularioConsulta.addEventListener("submit", async function(evento) {
 
-    evento.preventDefault();
+        evento.preventDefault();
 
-    const numeroPedido = document.querySelector("#numero-pedido").value;
+        const numeroPedido = document.querySelector("#numero-pedido").value.trim();
+        const resultado = document.querySelector("#resultado-pedido");
 
-    const resultado = document.querySelector("#resultado-pedido");
+        resultado.innerHTML = "<p>Consultando pedido...</p>";
 
-    if (pedidos[numeroPedido]) {
+        try {
 
-        const estadoPedido = pedidos[numeroPedido].estado;
+            const respuesta = await fetch(
+                `http://127.0.0.1:5000/pedidos/${encodeURIComponent(numeroPedido)}`
+            );
 
-        let claseEstado = "";
+            const pedido = await respuesta.json();
 
-        if (estadoPedido === "En fabricación") {
-            claseEstado = "estado-fabricacion";
-        } else if (estadoPedido === "Listo para entregar") {
-            claseEstado = "estado-listo";
-        } else if (estadoPedido === "Entregado") {
-            claseEstado = "estado-entregado";
-        }
+            if (!respuesta.ok) {
 
-        resultado.innerHTML = `
+                resultado.innerHTML = `
+                    <div class="resultado-pedido">
+                        <h4>
+                            <i class="bi bi-exclamation-circle-fill text-danger"></i>
+                            Pedido no encontrado
+                        </h4>
 
-            <div class="resultado-pedido">
-                <h4>
-                    <i class="bi bi-check-circle-fill text-success"></i>
-                    Pedido encontrado
-                </h4>
+                        <p>
+                            No encontramos un pedido con el número:
+                            <strong>${numeroPedido}</strong>
+                        </p>
 
-                <p>
-                    <strong>Número de pedido:</strong> ${numeroPedido}
-                </p>
+                        <p>
+                            Verifica el número ingresado e inténtalo nuevamente.
+                        </p>
 
-                <p>
-                    <strong>Cliente:</strong> ${pedidos[numeroPedido].cliente}
-                </p>
+                        <button type="button"
+                                class="btn-nueva-consulta mt-3"
+                                id="nueva-consulta">
+                            <i class="bi bi-arrow-repeat"></i>
+                            Nueva consulta
+                        </button>
+                    </div>
+                `;
 
-                <p>
-                    <strong>Tipo de lente:</strong> ${pedidos[numeroPedido].tipo}
-                </p>
+                return;
+            }
 
-                <p>
-                    <strong>Estado:</strong>
-                    <span class="estado-pedido ${claseEstado}">
-                        ${estadoPedido}
-                    </span>
-                </p>
+            let claseEstado = "";
 
-                <p>
-                <strong>Fecha estimada:</strong> ${pedidos[numeroPedido].fecha}
-                </p>
-            </div>
+            if (pedido.estado_pedido === "En fabricación") {
+                claseEstado = "estado-fabricacion";
+            } else if (pedido.estado_pedido === "Listo para entregar") {
+                claseEstado = "estado-listo";
+            } else if (pedido.estado_pedido === "Entregado") {
+                claseEstado = "estado-entregado";
+            }
 
-            
-            <button type="button" class="btn-nueva-consulta mt-3" id="nueva-consulta">
-                <i class="bi bi-arrow-repeat"></i>
-                Nueva consulta
-            </button>
-            
-    `;
+            const fechaEstimada = pedido.fecha_estimada_entrega
+                ? new Date(pedido.fecha_estimada_entrega).toLocaleDateString("es-CO", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                    timeZone: "UTC"
+                })
+                : "Pendiente por confirmar";
 
-    } else {
+            resultado.innerHTML = `
+                <div class="resultado-pedido">
 
-        resultado.innerHTML = `
-            <div class="resultado-pedido">
-                <h4>
-                    <i class="bi bi-exclamation-circle-fill text-danger"></i>
-                        Pedido no encontrado
+                    <h4>
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                        Pedido encontrado
                     </h4>
 
                     <p>
-                        No encontramos un pedido con el número:
-                        <strong>${numeroPedido}</strong>
+                        <strong>Número de pedido:</strong>
+                        ${pedido.numero_pedido}
                     </p>
 
                     <p>
-                        Verifica el número ingresado e inténtalo nuevamente.
+                        <strong>Tipo de lente:</strong>
+                        ${pedido.tipo_lente}
                     </p>
 
-                    <button type="button" class="btn-nueva-consulta mt-3" id="nueva-consulta">
-                        <i class="bi bi-arrow-repeat"></i>
-                        Nueva consulta
-                    </button>
-              </div>
-    `     ;
+                    <p>
+                        <strong>Estado:</strong>
+                        <span class="estado-pedido ${claseEstado}">
+                            ${pedido.estado_pedido}
+                        </span>
+                    </p>
 
-    }
+                    <p>
+                        <strong>Fecha estimada:</strong>
+                        ${fechaEstimada}
+                    </p>
 
+                </div>
 
- /* DESPLAZAMIENTO AL RESULTADO */
-    resultado.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-});
+                <button type="button"
+                        class="btn-nueva-consulta mt-3"
+                        id="nueva-consulta">
+                    <i class="bi bi-arrow-repeat"></i>
+                    Nueva consulta
+                </button>
+            `;
 
-});
+        } catch (error) {
+
+            console.error("Error al consultar el pedido:", error);
+
+            resultado.innerHTML = `
+                <div class="resultado-pedido">
+                    <h4>
+                        <i class="bi bi-exclamation-triangle-fill text-danger"></i>
+                        No fue posible consultar el pedido
+                    </h4>
+
+                    <p>
+                        No pudimos conectar con el servidor.
+                        Inténtalo nuevamente más tarde.
+                    </p>
+                </div>
+            `;
+        }
+
+    });
 
 }
+
+        /* DESPLAZAMIENTO AL RESULTADO */
+        resultado.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+
 
 /* NUEVA CONSULTA */
 document.addEventListener("click", function(evento) {
