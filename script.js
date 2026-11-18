@@ -381,7 +381,7 @@ Material: ${materialLente ? materialLente.value : "No seleccionado"}
 Filtros y tratamientos: ${filtros.length > 0 ? filtros.join(", ") : "Ninguno"}
 Montura: ${tipoMontura ? tipoMontura.value : "No seleccionado"}
 
-Por favor, envía(adjunta) en este chat la foto(formato JPG, JPEG o PNG) de tu fórmula para completar la solicitud de cotización.
+Por favor, envía (adjunta) en este chat la foto (formato JPG, JPEG o PNG) de tu fórmula para completar la solicitud de cotización.
         `;
 
         const mensajeCodificado = encodeURIComponent(mensajeWhatsApp);
