@@ -147,7 +147,7 @@ if (formularioConsulta) {
 
             console.error("Error al consultar el pedido:", error);
 
-            resultado.innerHTML = `
+            resultado.innerHTML = ` 
                 <div class="resultado-pedido">
                     <h4>
                         <i class="bi bi-exclamation-triangle-fill text-danger"></i>
@@ -160,19 +160,18 @@ if (formularioConsulta) {
                     </p>
                 </div>
             `;
-        }
+        } finally {
+
+            /* DESPLAZAMIENTO AL RESULTADO */
+            resultado.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }    
 
     });
 
 }
-
-        /* DESPLAZAMIENTO AL RESULTADO */
-        resultado.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-
 
 /* NUEVA CONSULTA */
 document.addEventListener("click", function(evento) {
