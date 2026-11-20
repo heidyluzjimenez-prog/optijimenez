@@ -101,4 +101,4 @@ La base `optijimenez` tiene 11 tablas: `cliente`, `pedido`, `formula`, `pago`, `
 **Heidy Jiménez**, aprendiz de programación de software.
 
 - GitHub: - [heidyluzjimenez-prog](https://github.com/heidyluzjimenez-prog)
-- LinkedIn: [Heidy Luz Jimenez](www.linkedin.com/in/heidyluzjimenez)
+- LinkedIn: [Heidy Luz Jiménez](https://www.linkedin.com/in/heidyluzjimenez)
